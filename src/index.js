@@ -53,7 +53,7 @@ const ReactPropsTable = class ReactPropsTable extends React.Component {
 
     return (
       <Fragment>
-        <Table className={`${className} PropsTable`}>
+        <Table className={`${className || ""} PropsTable`}>
           <Thead>
             <Tr>
               <Th className="PropsTable--property">Property</Th>
