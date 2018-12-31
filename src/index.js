@@ -32,7 +32,10 @@ export const getPropType = (prop, Tooltip) => {
 const ReactPropsTable = class ReactPropsTable extends React.Component {
   render() {
     const { of: component = {}, components = {}, className } = this.props
-    const info = component.__docgenInfo
+    const info =
+      component && component.__esModule
+        ? get(component, "default.__docgenInfo")
+        : component.__docgenInfo
     const props = info && info.props
 
     const hasDescription = Object.keys(props).some(name => {
