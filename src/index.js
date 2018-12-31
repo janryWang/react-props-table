@@ -38,7 +38,7 @@ const ReactPropsTable = class ReactPropsTable extends React.Component {
         : component.__docgenInfo
     const props = info && info.props
 
-    const hasDescription = Object.keys(props).some(name => {
+    const hasDescription = Object.keys(props || {}).some(name => {
       const description = get(props, `${name}.description`)
       return Boolean(description) && Boolean(get(description, "length"))
     })
